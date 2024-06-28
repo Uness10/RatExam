@@ -21,7 +21,7 @@
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/events">Events</router-link>
+            <router-link class="nav-link" to="/events" v-if="logged">Events</router-link>
           </li>
 
           <li class="nav-item" v-if="logged">

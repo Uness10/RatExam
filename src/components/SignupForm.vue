@@ -84,6 +84,9 @@ export default {
       this.error = null;
       this.loading = true;
       try {
+        if (!this.email.endsWith('@um6p.ma')) {
+            throw new Error('Please use your um6p email');
+        }
         await signup(this.email, this.password, this.FullName, this.BirthDate);
         if (!error.value) {
           this.$emit('signup');
