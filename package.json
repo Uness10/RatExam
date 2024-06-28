@@ -1,0 +1,41 @@
+{
+  "name": "resume_builder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "bootstrap-vue": "^2.23.1",
+    "browser-image-compression": "^2.0.2",
+    "core-js": "^3.8.3",
+    "file-saver": "^2.0.5",
+    "firebase": "^8.0.0",
+    "perfect-scrollbar": "^1.5.5",
+    "puppeteer": "^22.10.1",
+    "vue": "^3.4.27",
+    "vue-draggable-next": "^2.2.1",
+    "vue-router": "^4.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.19",
+    "css-loader": "^7.1.2",
+    "postcss": "^8.4.38",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.4"
+  }
+}
