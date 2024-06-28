@@ -9,7 +9,7 @@
     <footer class="bg-gray-800 text-white py-2 mt-4">
       <div class="container mx-auto flex justify-between items-center">
         <div>
-          <p>&copy; 2023 Notre Application de Recettes</p>
+          <p>&copy; 2023 Votify</p>
         </div>
         <div>
           <ul class="flex items-center">
