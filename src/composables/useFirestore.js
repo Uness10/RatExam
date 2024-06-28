@@ -29,24 +29,24 @@ export  async function fetchEvent(rId) {
 
 }
 
+
 export async function updateEventVotes(eventId, userId, vote) {
-  const voteRef = projectFirestore.collection('Events').doc(eventId).collection('Votes').doc(userId);
+  const eventRef = projectFirestore.collection('Events').doc(eventId);
 
   try {
-    const voteDoc = await voteRef.get();
-    if (voteDoc.exists) {
-      console.error("User has already voted for this event");
-      return { success: false, error: "User has already voted for this event" };
+    const eventDoc = await eventRef.get();
+    if (eventDoc.exists) {
+      const eventData = eventDoc.data();
+
+        const newVote = { userId: userId, vote : vote.yesVotes ? 1 : 0 };
+        await eventRef.update({
+          votes: [...(eventData.votes || []), newVote]
+        });
+        return { success: true };
+      
     } else {
-      await voteRef.set({
-        vote : vote.yesVotes ? 1:0,
-        createdAt: new Date()
-      });
-
-      await projectFirestore.collection('Events').doc(eventId).update(vote);
-
-
-      return { success: true };
+      console.error("Event does not exist");
+      return { success: false, error: "Event does not exist" };
     }
   } catch (e) {
     console.error("Error updating document: ", e);

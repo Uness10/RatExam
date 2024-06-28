@@ -1,7 +1,6 @@
+
 <template>
     <div class="Event-container">
-      <SearchBar @search="handleSearch" />
-      <FilterOptions @filter="handleFilter" />
       <div class="Event-grid">
         <div v-for="Event in displayedEvents" :key="Event.id" class="Event-card">
           <EventCard :Event="Event" />        
@@ -14,14 +13,14 @@
   import { fetchEvents } from '@/composables/useFirestore.js';
   import EventCard from '@/components/EventCard.vue';
   //import SearchBar from '@/components/SearchBar.vue';
-  //import FilterOptions from '@/components/FilterOptions.vue';
+  import FilterOptions from '@/components/FilterOptions.vue';
   
   export default {
     name: 'Events',
     components: {
       EventCard,
      // SearchBar,
-     // FilterOptions
+      FilterOptions
     },
     data() {
       return {
@@ -32,13 +31,22 @@
     },
     computed: {
       filteredEvents() {
-        let filtered = this.Events;
-        if (this.searchQuery) {
-          filtered = filtered.filter(Event => Event.nom.toLowerCase().includes(this.searchQuery.toLowerCase()));
-        }
-        if (this.selectedCategory) {
-          filtered = filtered.filter(Event => Event.regime === this.selectedCategory);
-        }
+          let filtered = this.Events;
+
+          if (this.selectedCategory && this.selectedCategory !== 'All') {
+              if (this.selectedCategory === 'Voted') {
+                  filtered = this.events.filter(event => {
+                      // Check if any vote in event.votes has userId equal to this.userId
+                      return  event.votes && event.votes.some(vote => vote.userId === this.userId);
+                  });
+              } else if (this.selectedCategory === 'Unvoted') {
+                filtered = this.events.filter(event => {
+                      
+                      // Check if no vote in event.votes has userId equal to this.userId
+                      return event.votes && !event.votes.some(vote => vote.userId === this.userId);
+                  });
+              }
+          } 
         return filtered;
       },
       displayedEvents() {
