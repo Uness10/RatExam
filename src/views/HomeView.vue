@@ -1,20 +1,21 @@
 <template>
-  <div class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-    <div class="max-w-4xl px-6 py-12 bg-white shadow-lg rounded-lg">
-      <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-800">Welcome to {{ appName }}</h1>
-        <p class="text-gray-600">{{ appSubtitle }}</p>
+  <div class="min-h-screen flex flex-col items-center w-full justify-center bg-gradient-to-r from-purple-500 to-indigo-500 py-10">
+    <div class="max-w-5xl px-8 py-12 shadow-2xl rounded-xl bg-white bg-opacity-90 transform transition duration-500">
+      <div class="text-center mb-10">
+        <img src="@/assets/positive-vote.png" alt="logo" class="w-20 h-20 mx-auto mb-4 animate-bounce">
+        <h1 class="text-5xl font-extrabold text-gray-900">{{ appName }}</h1>
+        <p class="text-gray-700 mt-4">{{ appSubtitle }}</p>
       </div>
 
       <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">Key Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="p-6 bg-blue-100 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">Express Your Votes</h3>
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Key Features</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 bg-blue-100 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-semibold mb-2">Express Your Votes</h3>
             <p class="text-gray-700">Vote on UM6P events to express your interest or support.</p>
           </div>
-          <div class="p-6 bg-blue-100 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">Event Details</h3>
+          <div class="p-6 bg-blue-100 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-semibold mb-2">Event Details</h3>
             <p class="text-gray-700">Get detailed information about upcoming events.</p>
           </div>
           <!-- Add more features as per your application -->
@@ -22,8 +23,8 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">How It Works</h2>
-        <ol class="list-decimal list-inside">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">How It Works</h2>
+        <ol class="list-decimal list-inside text-lg text-gray-700 space-y-2">
           <li>Sign up with your UM6P email.</li>
           <li>Browse upcoming events and vote on your favorites.</li>
           <li>Engage with the community through comments and discussions.</li>
@@ -31,14 +32,14 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">Benefits</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="p-6 bg-green-100 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">Amplify Your Voice</h3>
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Benefits</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 bg-green-100 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-semibold mb-2">Amplify Your Voice</h3>
             <p class="text-gray-700">Influence campus events and initiatives that matter to you.</p>
           </div>
-          <div class="p-6 bg-green-100 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">Stay Informed</h3>
+          <div class="p-6 bg-green-100 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-semibold mb-2">Stay Informed</h3>
             <p class="text-gray-700">Never miss out on exciting UM6P events and opportunities.</p>
           </div>
           <!-- Add more benefits as per your application -->
@@ -46,8 +47,8 @@
       </section>
 
       <section class="text-center">
-        <h2 class="text-xl font-semibold mb-4">Ready to Get Started?</h2>
-        <button @click="handleSignUp" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Ready to Get Started?</h2>
+        <button @click="handleSignUp" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-offset-2">
           Sign Up Now
         </button>
       </section>
@@ -75,6 +76,17 @@ export default {
 </script>
 
 <style scoped>
-/* Scoped styles specific to this component */
-/* You can add custom scoped styles here if necessary */
+/* Add some global styling for animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
 </style>

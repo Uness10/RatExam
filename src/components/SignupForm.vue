@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
-    <div class="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
-      <form @submit.prevent="handleSignUp" class="space-y-6">
+    <div class="w-full max-w-md p-3rounded-lg">
+      <form @submit.prevent="handleSignUp" class="space-y-2 bg-transparent">
         <div>
           <label for="FullName" class="block text-sm font-medium text-gray-700">Full Name</label>
           <input
@@ -10,7 +10,7 @@
             type="text"
             placeholder="Full Name"
             required
-            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-orange-600 mt-1"
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-orange-600 mt-1 "
           />
         </div>
         <div>
@@ -50,7 +50,7 @@
           <button
             type="submit"
             :disabled="loading"
-            class="w-full bg-gradient-to-r from-green-700 to-green-600 btn-pers text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:from-green-700 hover:to-green-500"
+            class="w-full bg-gradient-to-r from-blue-600 to-red-600 text-white btn-pers text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-800 text-white"
           >
             <span v-if="loading">Signing Up...</span>
             <span v-else>Sign Up</span>

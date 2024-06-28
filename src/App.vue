@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home bg-gradient-to-r from-blue-300 to-purple-300 wht">
     <!-- Header -->
     <NavBar /> <!-- Include NavBar component here -->
   
@@ -42,5 +42,8 @@ export default {
 </script>
 
 <style scoped>
+.wht{
+  background-color: rgba(255, 255, 255, 0.518);
+}
 /* Scoped styles */
 </style>

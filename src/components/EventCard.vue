@@ -28,13 +28,12 @@
   
   <style scoped>
   .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
     overflow: hidden;
     max-width: 400px;
+    
     margin: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    border-style: hidden;
+    border-radius: 20px;    transition: transform 0.2s;
   }
   
   .card:hover {

@@ -1,11 +1,10 @@
 <template>
-  <nav class="bg-gradient-to-r from-blue-200 to-blue-600 text-white shadow-sm relative z-10 mb-4">
+  <nav class="bg-gray-800 text-white shadow-sm relative z-10 mb-4">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8 text-yellow-300 mr-2">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-        </svg>
-        <router-link to="/" class="text-2xl font-semibold">Your Brand</router-link>
+        <!-- Logo -->
+        <img src="@/assets/positive-vote.png" alt="logo" class="w-8 h-8 mr-2">
+        <router-link to="/" class="text-2xl font-bold text-white hover:text-gray-200 transition-colors duration-300">Votify</router-link>
       </div>
       <button
         class="block lg:hidden p-2 border rounded text-white border-white"
@@ -15,44 +14,44 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <div class="hidden lg:flex lg:items-center lg:w-auto">
+      <div class="hidden lg:flex lg:items-center lg:w-auto  text-white">
         <ul class="lg:flex lg:space-x-4 text-center">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Home</router-link>
+            <router-link class="nav-link" to="/" :class="{'text-white': !logged, 'text-gray-200': logged}">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/events" v-if="logged">Events</router-link>
+            <router-link class="nav-link" to="/events" v-if="logged" :class="{'text-white': !logged, 'text-gray-200': logged}">Events</router-link>
           </li>
 
           <li class="nav-item" v-if="logged">
-            <router-link class="nav-link" to="/profile">Profile</router-link>
+            <router-link class="nav-link" to="/profile" :class="{'text-white': !logged, 'text-gray-200': logged}">Profile</router-link>
           </li>
           <li class="nav-item" v-else>
-            <router-link class="nav-link" to="/welcome">Enter</router-link>
+            <router-link class="nav-link" to="/welcome" :class="{'text-white': !logged, 'text-gray-200': logged}">Enter</router-link>
           </li>
           <li class="nav-item" v-if="logged">
-            <a href="#" class="nav-link" @click.prevent="handleLogout">Log Out</a>
+            <a href="#" class="nav-link  hover:text-gray-200 transition-colors duration-300" @click.prevent="handleLogout">Log Out</a>
           </li>
         </ul>
       </div>
     </div>
-    <div :class="{'block': isOpen, 'hidden': !isOpen}" class="lg:hidden absolute w-full bg-blue-600 text-white">
+    <div :class="{'block': isOpen, 'hidden': !isOpen}" class="lg:hidden absolute w-full bg-gray-800 text-white">
       <ul class="text-center py-2">
         <li class="nav-item">
-          <router-link class="nav-link" to="/">Accueil</router-link>
+          <router-link class="nav-link" to="/" :class="{'text-white': !logged, 'text-gray-200': logged}">Home</router-link>
         </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/events">Events</router-link>
+        <li class="nav-item" v-if="logged">
+          <router-link class="nav-link" to="/events" :class="{'text-white': !logged, 'text-purple-200': logged}">Events</router-link>
         </li>
 
         <li class="nav-item" v-if="logged">
-          <router-link class="nav-link" to="/profile">Profile</router-link>
+          <router-link class="nav-link" to="/profile" :class="{'text-white': !logged, 'text-gray-200': logged}">Profile</router-link>
         </li>
         <li class="nav-item" v-else>
-          <router-link class="nav-link" to="/welcome">Enter</router-link>
+          <router-link class="nav-link" to="/welcome" :class="{'text-white': !logged, 'text-gray-200': logged}">Enter</router-link>
         </li>
         <li class="nav-item" v-if="logged">
-          <a href="#" class="nav-link" @click.prevent="handleLogout">Log Out</a>
+          <a href="#" class="nav-link text-white hover:text-gray-200 transition-colors duration-300" @click.prevent="handleLogout">Log Out</a>
         </li>
       </ul>
     </div>
@@ -103,7 +102,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 .nav-link {
-  @apply block py-2 px-4 text-white hover:bg-blue-700 rounded transition-colors duration-300;
+  @apply block py-2 px-4 hover:bg-blue-700 rounded transition-colors duration-300;
 }
 
 .nav-item + .nav-item {

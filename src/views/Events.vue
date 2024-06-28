@@ -83,15 +83,15 @@
   
   .Event-grid {
     display: grid;
+    
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
   }
   
   .Event-card {
-    border-radius: 10px;
+    border-style: hidden;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
   }
   
   .Event-card:hover {
